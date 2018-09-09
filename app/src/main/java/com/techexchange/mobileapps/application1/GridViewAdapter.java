@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.AbsListView.LayoutParams;
 
 import java.util.ArrayList;
 
@@ -38,14 +39,12 @@ public class GridViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView image;
 
-        if(convertView == null) {
+        if(convertView == null)
            image = mImages.get(position);
-        }
         else
             image = (ImageView) convertView;
 
-        android.widget.AbsListView.LayoutParams params =
-                new android.widget.AbsListView.LayoutParams(colWidth, colHeight);
+        LayoutParams params = new LayoutParams(colWidth, colHeight);
         image.setLayoutParams(params);
 
         return image;
